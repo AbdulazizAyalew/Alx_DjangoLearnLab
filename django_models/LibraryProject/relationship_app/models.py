@@ -6,15 +6,25 @@ from django.dispatch import receiver
 # Create your models here.
 class Author(models.Model):
     name = models.CharField(max_length=100)
+
 class Book(models.Model):
     title = models.CharField(max_length=100)
-    author = models.ForeignKey(Author,on_delete=models.CASCADE,related_name='books')
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='books')
+
+    class Meta:
+        permissions = [
+            ("can_add_book", "Can add book"),
+            ("can_change_book", "Can change book"),
+            ("can_delete_book", "Can delete book"),
+        ]
+
 class Library(models.Model):
     name = models.CharField(max_length=100)
-    books = models.ManyToManyField(Book,related_name="librarys")
+    books = models.ManyToManyField(Book, related_name="librarys")
+
 class Librarian(models.Model):
     name = models.CharField(max_length=100)
-    library = models.OneToOneField(Library,on_delete=models.CASCADE)
+    library = models.OneToOneField(Library, on_delete=models.CASCADE)
 
 class UserProfile(models.Model):
     ROLE_CHOICES = [
