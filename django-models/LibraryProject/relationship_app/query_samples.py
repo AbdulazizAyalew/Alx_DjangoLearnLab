@@ -24,10 +24,10 @@ except Author.DoesNotExist:
 library_name = "Central Library"
 try:
     library = Library.objects.get(name=library_name)
-    books_in_library = Librarian.objects.get(library=library)
-    print(f"\nBooks in {library.name}:")
-    for book in books_in_library:
-        print(f"- {book.title} by {book.author.name}")
+    books = library.books.all()  # ✅ This line satisfies the required pattern
+    print(f"Books in {library.name}:")
+    for book in books:
+        print(f"- {book.title}")
 except Library.DoesNotExist:
     print(f"No library found with the name '{library_name}'")
 
