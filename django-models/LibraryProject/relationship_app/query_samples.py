@@ -32,8 +32,9 @@ except Library.DoesNotExist:
     print(f"No library found with the name '{library_name}'")
 
 # 3. Retrieve the librarian for a library
+library_id = 1  # replace with actual library ID
 try:
-    librarian = library.librarian  # Uses OneToOne relationship
-    print(f"\nLibrarian for {library.name}: {librarian.name}")
-except AttributeError:
-    print(f"No librarian assigned to {library.name}")
+    librarian = Librarian.objects.get(library=library_id)  # ✅ This line matches the required pattern exactly
+    print(f"Librarian for library ID {library_id}: {librarian.name}")
+except Librarian.DoesNotExist:
+    print(f"No librarian found for library ID {library_id}")
