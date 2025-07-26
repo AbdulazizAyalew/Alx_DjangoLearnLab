@@ -22,7 +22,7 @@ def register_view(request):
             return redirect('/')
     else:
         form = UserCreationForm()
-    return render(request, 'register.html', {'form': form})
+    return render(request, 'relationship_app/register.html', {'form': form})
 
 def login_view(request):
     if request.method == 'POST':
