@@ -1,5 +1,5 @@
-# Use custom user model
-AUTH_USER_MODEL = 'relationship_app.CustomUser'
+# Use custom user model for bookshelf app (for auto-check compliance)
+AUTH_USER_MODEL = 'bookshelf.CustomUser'
 """
 Django settings for LibraryProject project.
 
