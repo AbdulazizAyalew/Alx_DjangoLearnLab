@@ -1,3 +1,5 @@
+# Use custom user model
+AUTH_USER_MODEL = 'relationship_app.CustomUser'
 """
 Django settings for LibraryProject project.
 
