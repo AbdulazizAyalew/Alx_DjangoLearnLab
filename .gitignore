@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+
+# Django stuff
+*.log
+db.sqlite3
+media/
+staticfiles/
+static/
+
+
+# Windows
+Thumbs.db
+
+# Pytest cache
+.pytest_cache/
