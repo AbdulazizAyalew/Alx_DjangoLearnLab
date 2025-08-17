@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+    <title> {% block title %} Django Blog {% endblock %}</title>
+    <link rel = "stylesheet" href = "{% static 'css/styles.css' %}">
+
+</haed>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href = "{% url  'home' %}">Home</a></li>
+                <li><a href = "{% url  'posts' %}">Blog Posts</a></li>
+                <li><a href = "{% url  'login' %}">Login</a></li>
+                <li><a href = "{% url  'register' %}">Register</a></li>
+
+            </ul>
+
+            <form method="get" action="{% url 'search-results' %}">
+                <input type="text" name="q" placeholder="Search posts...">
+                <button type="submit">Search</button>
+            </form>
+
+        </nav>
+    </header>
+
+
+    <div class = "content">
+        {% block content %}
+       {% comment %}  page specific content goes here  {% endcomment %}
+        {% endblock %}
+
+    </div>
+    <footer>
+        <p>&copy; 2025 Django Blog</p>
+    </footer>
+
+    <script src = "{% static 'js/scripts.js' %}">
+
+</body>
+</html>
